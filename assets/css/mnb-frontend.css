@@ -1,0 +1,774 @@
+/* ═══════════════════════════════════════════════════════════════
+   Monument Builder v21 — Frontend Styles
+   Inspired by Signature Headstones layout
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+    --mnb-gold:       #c8a84b;
+    --mnb-gold-light: #f5edd6;
+    --mnb-dark:       #1a1a1a;
+    --mnb-gray:       #666;
+    --mnb-border:     #e0ddd6;
+    --mnb-card-bg:    #f9f7f2;
+    --mnb-input-bg:   #ffffff;
+    --mnb-radius:     4px;
+    --mnb-ease:       0.18s ease;
+}
+
+/* ── Canvas wrap ───────────────────────────────────────────── */
+.mnb-canvas-wrap {
+    overflow: visible;
+    width: 100%;
+    margin: 0;
+    background: #111;
+    border-radius: var(--mnb-radius);
+}
+
+.mnb-canvas-container {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+    background: #111;
+    border-radius: var(--mnb-radius);
+    overflow: hidden;
+}
+
+.mnb-canvas-bg { display: none; }
+
+.mnb-canvas-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 13px;
+}
+
+#mnb-canvas {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.mnb-canvas-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #1a1a1a;
+    flex-wrap: wrap;
+}
+
+.mnb-tool-btn,
+.mnb-btn-download {
+    background: transparent;
+    border: 1px solid rgba(200,168,75,0.6);
+    color: var(--mnb-gold);
+    padding: 4px 12px;
+    border-radius: var(--mnb-radius);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--mnb-ease);
+    white-space: nowrap;
+}
+
+.mnb-tool-btn:hover,
+.mnb-btn-download:hover {
+    background: var(--mnb-gold);
+    color: #fff;
+    border-color: var(--mnb-gold);
+}
+
+#mnb-proof-indicator {
+    margin-left: auto;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+}
+
+.mnb-canvas-hint {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    padding: 6px 12px;
+    margin: 0;
+    background: rgba(0,0,0,0.4);
+    line-height: 1.5;
+}
+
+.mnb-layout-badge { margin: 0 0 10px; }
+.mnb-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; letter-spacing: .4px; }
+.mnb-badge-double { background: var(--mnb-dark); color: #fff; }
+
+/* ════════════════════════════════════════════════════════════
+   STEP CARDS
+════════════════════════════════════════════════════════════ */
+.mnb-configurator {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.mnb-step-card {
+    border: 1px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    overflow: hidden;
+    background: var(--mnb-input-bg);
+}
+
+.mnb-step-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--mnb-card-bg);
+    border-bottom: 1px solid var(--mnb-border);
+}
+
+.mnb-step-num-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mnb-dark);
+    color: var(--mnb-gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.mnb-step-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mnb-dark);
+}
+
+.mnb-step-card-title em {
+    font-weight: 400;
+    color: var(--mnb-gray);
+    font-style: normal;
+}
+
+.mnb-step-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ── Field blocks ──────────────────────────────────────────── */
+.mnb-field-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mnb-field-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--mnb-dark);
+    gap: 8px;
+}
+
+.mnb-field-label-sm {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--mnb-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mnb-required { color: #c0392b; font-size: 11px; }
+.mnb-inline-error { color: #c0392b; font-size: 12px; margin: 2px 0 0; }
+
+.mnb-char-count {
+    font-size: 11px;
+    font-weight: 400;
+    color: #aaa;
+    flex-shrink: 0;
+}
+.mnb-char-count.mnb-near-limit { color: #e67e22; font-weight: 600; }
+.mnb-char-count.mnb-at-limit   { color: #c0392b; font-weight: 700; }
+
+/* ── Inputs ────────────────────────────────────────────────── */
+.mnb-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 11px;
+    border: 1px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    font-size: 14px;
+    background: var(--mnb-input-bg);
+    color: var(--mnb-dark);
+    transition: border-color var(--mnb-ease);
+    appearance: none;
+}
+
+.mnb-input:focus {
+    outline: none;
+    border-color: var(--mnb-gold);
+    box-shadow: 0 0 0 2px rgba(200,168,75,0.15);
+}
+
+.mnb-textarea {
+    resize: vertical;
+    min-height: 64px;
+    line-height: 1.5;
+}
+
+.mnb-epitaph-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23666'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    cursor: pointer;
+}
+
+/* ════════════════════════════════════════════════════════════
+   MONUMENT TYPE BUTTONS
+════════════════════════════════════════════════════════════ */
+.mnb-btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.mnb-type-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 8px;
+    border: 2px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    background: var(--mnb-input-bg);
+    cursor: pointer;
+    transition: all var(--mnb-ease);
+    font-family: inherit;
+}
+
+.mnb-type-icon {
+    font-size: 18px;
+    color: var(--mnb-gray);
+    line-height: 1;
+}
+
+.mnb-type-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--mnb-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mnb-type-btn:hover {
+    border-color: var(--mnb-gold);
+}
+
+.mnb-type-btn--active {
+    border-color: var(--mnb-gold) !important;
+    background: var(--mnb-gold-light) !important;
+}
+
+.mnb-type-btn--active .mnb-type-icon,
+.mnb-type-btn--active .mnb-type-label {
+    color: #8a6a00;
+}
+
+/* ════════════════════════════════════════════════════════════
+   FONT TILE GRID (Step 1 visual font selector)
+════════════════════════════════════════════════════════════ */
+.mnb-font-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+}
+
+.mnb-font-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 12px 8px 10px;
+    border: 1.5px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    background: var(--mnb-input-bg);
+    cursor: pointer;
+    transition: all var(--mnb-ease);
+    text-align: center;
+    user-select: none;
+    min-height: 72px;
+}
+
+.mnb-font-tile:hover {
+    border-color: var(--mnb-gold);
+    background: var(--mnb-gold-light);
+}
+
+.mnb-font-tile--active {
+    border-color: var(--mnb-gold) !important;
+    background: var(--mnb-gold-light) !important;
+    box-shadow: 0 0 0 1px var(--mnb-gold);
+}
+
+.mnb-font-tile-sample {
+    font-size: 24px;
+    color: var(--mnb-dark);
+    line-height: 1.1;
+    display: block;
+}
+
+.mnb-font-tile-img {
+    max-height: 36px;
+    width: auto;
+    display: block;
+}
+
+.mnb-font-tile-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--mnb-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+/* ════════════════════════════════════════════════════════════
+   PER-LINE FONT (compact inline)
+════════════════════════════════════════════════════════════ */
+.mnb-font-inline {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.mnb-font-inline--visible { display: flex; }
+
+.mnb-font-options-inline {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.mnb-font-option-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border: 1px solid var(--mnb-border);
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    background: var(--mnb-input-bg);
+    transition: all var(--mnb-ease);
+    white-space: nowrap;
+}
+
+.mnb-font-option-sm:hover,
+.mnb-font-option-sm--active,
+.mnb-font-option-sm:has(input:checked) {
+    border-color: var(--mnb-gold);
+    background: var(--mnb-gold-light);
+    color: #8a6a00;
+}
+
+.mnb-font-option-sm input { display: none; }
+.mnb-font-img-sm { max-height: 18px; width: auto; }
+
+/* Line group error state */
+.mnb-line-group.mnb-error .mnb-input {
+    border-color: #c0392b;
+    box-shadow: 0 0 0 2px rgba(192,57,43,0.1);
+}
+
+/* Double monument grid */
+.mnb-double-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.mnb-col-left,
+.mnb-col-right {
+    border-left: 1px solid var(--mnb-border);
+    padding-left: 12px;
+}
+
+.mnb-col-heading {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--mnb-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 0 0 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--mnb-gold-light);
+}
+
+@media (max-width: 680px) {
+    .mnb-double-grid { grid-template-columns: 1fr; }
+    .mnb-col-left, .mnb-col-right {
+        border-left: none;
+        border-top: 1px solid var(--mnb-border);
+        padding-left: 0;
+        padding-top: 10px;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════
+   UPLOAD TOGGLE ACCORDION
+════════════════════════════════════════════════════════════ */
+.mnb-upload-block {
+    border: 1px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    overflow: hidden;
+}
+
+.mnb-upload-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--mnb-card-bg);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mnb-dark);
+    text-align: left;
+    transition: background var(--mnb-ease);
+}
+
+.mnb-upload-toggle:hover { background: var(--mnb-gold-light); }
+
+.mnb-upload-toggle[aria-expanded="true"] {
+    background: var(--mnb-gold-light);
+    color: #8a6a00;
+    border-bottom: 1px solid var(--mnb-border);
+}
+
+.mnb-upload-toggle[aria-expanded="true"] .mnb-upload-toggle-icon {
+    transform: rotate(45deg);
+    color: var(--mnb-gold);
+}
+
+.mnb-upload-toggle-icon {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--mnb-gold);
+    transition: transform var(--mnb-ease);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.mnb-upload-toggle-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--mnb-gray);
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.mnb-upload-panel {
+    display: none;
+    background: var(--mnb-input-bg);
+}
+
+.mnb-upload-panel.mnb-open { display: block; }
+
+.mnb-upload-inner {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mnb-upload-desc {
+    font-size: 13px;
+    color: var(--mnb-gray);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Drop zone */
+.mnb-upload-dropzone {
+    position: relative;
+    border: 2px dashed var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--mnb-ease), background var(--mnb-ease);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.mnb-upload-dropzone:hover,
+.mnb-upload-dropzone.mnb-drag-over {
+    border-color: var(--mnb-gold);
+    background: var(--mnb-gold-light);
+}
+
+.mnb-upload-file-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.mnb-upload-dropzone-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.mnb-upload-icon {
+    font-size: 28px;
+    color: var(--mnb-gray);
+    line-height: 1;
+}
+
+.mnb-upload-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--mnb-dark);
+    margin: 0;
+}
+
+.mnb-upload-formats {
+    font-size: 11px;
+    color: var(--mnb-gray);
+    margin: 0;
+}
+
+/* Upload preview */
+.mnb-upload-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: var(--mnb-card-bg);
+    border-radius: var(--mnb-radius);
+}
+
+.mnb-upload-preview img {
+    max-height: 70px;
+    max-width: 120px;
+    object-fit: contain;
+    border-radius: 3px;
+    border: 1px solid var(--mnb-border);
+}
+
+.mnb-upload-remove {
+    background: none;
+    border: 1px solid #ddd;
+    color: #c0392b;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: var(--mnb-radius);
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.mnb-upload-remove:hover { background: #fdf0f0; }
+
+.mnb-upload-note {
+    font-size: 12px;
+    margin: 0;
+}
+
+.mnb-upload-note.mnb-error { color: #c0392b; }
+.mnb-upload-note.mnb-success { color: #27ae60; }
+
+.mnb-upload-range {
+    width: 100%;
+    accent-color: var(--mnb-gold);
+}
+
+/* ── Epitaph section ───────────────────────────────────────── */
+.mnb-epitaph-section { border-top: 1px dashed var(--mnb-border); padding-top: 12px; }
+
+/* ── Footer note ───────────────────────────────────────────── */
+.mnb-note {
+    font-size: 12px;
+    color: var(--mnb-gray);
+    margin: 4px 0 0;
+    padding: 8px 12px;
+    background: var(--mnb-card-bg);
+    border-left: 3px solid var(--mnb-gold);
+    border-radius: 0 var(--mnb-radius) var(--mnb-radius) 0;
+    line-height: 1.5;
+}
+
+/* ── Cart badge ────────────────────────────────────────────── */
+.mnb-cart-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--mnb-gold);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* ── Variation selectors in left column ───────────────────── */
+.mnb-variations-only .single_add_to_cart_button,
+.mnb-variations-only .quantity,
+.mnb-variations-only .woocommerce-variation-price,
+.mnb-variations-only .woocommerce-variation-availability { display: none !important; }
+
+.mnb-variations-only .variations { width: 100%; border-collapse: collapse; }
+.mnb-variations-only .variations td.label { font-weight: 600; font-size: 13px; padding-right: 12px; white-space: nowrap; vertical-align: middle; width: 70px; }
+.mnb-variations-only .variations select { width: 100%; border: 1px solid var(--mnb-border); border-radius: var(--mnb-radius); padding: 8px 10px; font-size: 14px; background: #fff; }
+.mnb-variations-only .reset_variations { font-size: 12px; color: var(--mnb-gold); display: block; margin-top: 4px; }
+
+/* ── Cart button ───────────────────────────────────────────── */
+.mnb-cart-button-only .variations,
+.mnb-cart-button-only .woocommerce-variation.single_variation { display: none !important; }
+
+.mnb-cart-button-only .single_add_to_cart_button {
+    background-color: var(--mnb-gold) !important;
+    border-color: #b8943b !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 12px 28px !important;
+    border-radius: var(--mnb-radius) !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    transition: background .18s ease !important;
+}
+
+.mnb-cart-button-only .single_add_to_cart_button:hover { background-color: #b8943b !important; }
+
+/* ── Canvas actions ────────────────────────────────────────── */
+.mnb-canvas-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #1a1a1a;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Engravings step ─────────────────────────────────── */
+.mnb-engravings-body {
+    padding: 8px 0;
+}
+
+.mnb-engravings-slot .variations {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mnb-engravings-slot .variations td.label {
+    font-weight: 600;
+    font-size: 13px;
+    padding-right: 14px;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 100px;
+}
+
+.mnb-engravings-slot .variations select {
+    width: 100%;
+    border: 1px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    padding: 9px 12px;
+    font-size: 14px;
+    background: #fff;
+    color: var(--mnb-dark);
+}
+
+.mnb-engravings-slot .variations select:focus {
+    outline: none;
+    border-color: var(--mnb-gold);
+    box-shadow: 0 0 0 2px rgba(200,168,75,0.15);
+}
+
+.mnb-engravings-slot .reset_variations {
+    font-size: 12px;
+    color: var(--mnb-gold);
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.mnb-engravings-hint {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+    font-style: italic;
+}
+
+/* ── Engravings variation table inside Step 1 ── */
+.mnb-variations-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mnb-variations-table td.label {
+    font-weight: 600;
+    font-size: 13px;
+    padding-right: 14px;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 110px;
+    padding: 6px 14px 6px 0;
+}
+
+.mnb-variations-table td.value {
+    padding: 6px 0;
+}
+
+.mnb-variations-table select {
+    width: 100%;
+    border: 1px solid var(--mnb-border);
+    border-radius: var(--mnb-radius);
+    padding: 9px 12px;
+    font-size: 14px;
+    background: #fff;
+    color: var(--mnb-dark);
+}
+
+.mnb-variations-table select:focus {
+    outline: none;
+    border-color: var(--mnb-gold);
+    box-shadow: 0 0 0 2px rgba(200,168,75,0.15);
+}
+
+.mnb-variations-table .reset_variations {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--mnb-gold);
+}
+
+/* ── Font tile active state ── */
+.mnb-font-tile--active {
+    border-color: var(--mnb-gold) !important;
+    background: var(--mnb-gold-lt) !important;
+    box-shadow: 0 0 0 1px var(--mnb-gold) !important;
+}

@@ -1,0 +1,433 @@
+/*
+ * Monument Builder v16 — Layout CSS
+ *
+ * SCOPE: Every rule is scoped to .mnb-configurator, .mnb-canvas-wrap,
+ * or .mnb-canvas-only-wrap. Nothing here touches the Elementor header,
+ * footer, nav, or any element outside the MNB widgets.
+ *
+ * Sticky behaviour for the left column is handled entirely by Elementor's
+ * own sticky setting on the container — NOT by this CSS.
+ */
+
+/* ── Configurator wrapper ─────────────────────────────────────── */
+.mnb-configurator {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ── Canvas wrap: overflow MUST be visible for sticky to work ─── */
+.mnb-canvas-wrap,
+.mnb-canvas-only-wrap .mnb-canvas-wrap {
+    overflow: visible;
+    width: 100%;
+    margin: 0;
+    background: #1a1a1a;
+    border-radius: 6px;
+}
+
+/* ── Canvas container ─────────────────────────────────────────── */
+.mnb-canvas-container {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+    background: #1a1a1a;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mnb-canvas-bg { display: none; }
+
+.mnb-canvas-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.mnb-canvas-placeholder::after {
+    content: 'Monument image will appear here';
+    color: #666;
+    font-size: 13px;
+}
+
+#mnb-canvas {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ── Toolbar ──────────────────────────────────────────────────── */
+.mnb-canvas-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 12px;
+    background: rgba(0,0,0,0.8);
+    flex-wrap: wrap;
+}
+
+.mnb-tool-btn {
+    background: rgba(200,168,75,0.2);
+    border: 1px solid #c8a84b;
+    color: #c8a84b;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mnb-tool-btn:hover { background: #c8a84b; color: #fff; }
+
+.mnb-toolbar-hint {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+}
+
+#mnb-proof-indicator {
+    margin-left: auto;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+}
+
+.mnb-canvas-hint {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    padding: 7px 12px;
+    margin: 0;
+    background: rgba(0,0,0,0.5);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    line-height: 1.5;
+}
+
+/* ── Variation selectors in left column ───────────────────────── */
+.mnb-variations-only .single_add_to_cart_button,
+.mnb-variations-only .quantity,
+.mnb-variations-only .woocommerce-variation-price,
+.mnb-variations-only .woocommerce-variation-availability {
+    display: none !important;
+}
+
+.mnb-variations-only .variations {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+}
+
+.mnb-variations-only .variations td.label {
+    font-weight: 600;
+    font-size: 13px;
+    padding-right: 12px;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 70px;
+}
+
+.mnb-variations-only .variations select {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.mnb-variations-only .variations select:focus {
+    outline: none;
+    border-color: #c8a84b;
+    box-shadow: 0 0 0 2px rgba(200,168,75,0.2);
+}
+
+.mnb-variations-only .reset_variations {
+    font-size: 12px;
+    color: #c8a84b;
+    display: block;
+    margin-top: 4px;
+}
+
+/* ── Add to Cart button in right column ───────────────────────── */
+.mnb-cart-button-only .variations,
+.mnb-cart-button-only .woocommerce-variation.single_variation {
+    display: none !important;
+}
+
+.mnb-cart-button-only .single_add_to_cart_button {
+    background-color: #c8a84b !important;
+    border-color:     #b8943b !important;
+    color:            #fff    !important;
+    font-weight:      700     !important;
+    font-size:        15px    !important;
+    padding:          12px 28px !important;
+    border-radius:    6px    !important;
+    width:            100%   !important;
+    cursor:           pointer !important;
+    transition:       background 0.18s ease !important;
+}
+
+.mnb-cart-button-only .single_add_to_cart_button:hover {
+    background-color: #b8943b !important;
+}
+
+/* ── Double monument divider line ─────────────────────────────── */
+.mnb-double-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.mnb-col-left,
+.mnb-col-right {
+    border-left: 2px solid #ddd;
+    padding-left: 14px;
+}
+
+.mnb-col-heading {
+    font-size: 11px;
+    font-weight: 800;
+    color: #c8a84b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 0 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f5edd6;
+}
+
+@media ( max-width: 680px ) {
+    .mnb-double-grid { grid-template-columns: 1fr; }
+    .mnb-col-left, .mnb-col-right {
+        border-left: none;
+        border-top: 2px solid #ddd;
+        padding-left: 0;
+        padding-top: 12px;
+    }
+}
+
+/* ── Product gallery in left column ───────────────────────────── */
+.elementor-widget-woocommerce-product-images .woocommerce-product-gallery {
+    float: none !important;
+    width: 100% !important;
+}
+
+.elementor-widget-woocommerce-product-images .woocommerce-product-gallery__image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   v22 LAYOUT RULES
+   Left  : canvas preview (sticky)
+   Right : gallery + images + variations + engraving + button
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Hide payment options on product page ─────────────────────
+   Targets common payment express buttons (PayPal, Apple Pay,
+   Google Pay, Stripe, Buy Now etc.) */
+.woocommerce-variation-add-to-cart .wc-ppec-cart-buttons-wrap,
+.woocommerce div.product .ppcpcc-container,
+.woocommerce div.product #woo_pp_ec_button_product,
+.woocommerce div.product .wp-block-woocommerce-product-button,
+.single-product .woocommerce-buy-now,
+.single-product .woocommerce_after_single_product_summary,
+.single-product [class*="stripe-button"],
+.single-product [class*="ppcp-button"],
+.single-product [class*="apple-pay"],
+.single-product [class*="google-pay"],
+.single-product .wc-stripe-elements-field,
+.single-product #wc-stripe-payment-request-wrapper,
+.woocommerce div.product .woocommerce-product-rating,
+div.product .wp-block-woocommerce-product-price ~ div[class*="buy"],
+.woopay-express-button-wrapper,
+.wc-block-components-express-payment,
+.wp-block-woocommerce-product-add-to-cart .wc-block-components-express-payment {
+    display: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PRODUCT GALLERY — RIGHT COLUMN
+   ── To adjust size in the future, change only these two vars
+   ──   --mnb-gallery-height  collapsed height of the main image
+   ──   --mnb-gallery-zoom    scale factor on hover
+   ══════════════════════════════════════════════════════════════ */
+
+.mnb-product-gallery-right {
+    --mnb-gallery-height: 400px;
+    --mnb-gallery-zoom:   1.8;
+}
+
+/* ── Outer wrapper ── */
+.mnb-product-gallery-right .woocommerce-product-gallery {
+    float: none !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    position: relative;
+}
+
+/* ── Constrain and clip the gallery to the target height.
+   Works whether FlexSlider has initialized (.flex-viewport exists)
+   or not (single image, slider not yet loaded). ── */
+.mnb-product-gallery-right .woocommerce-product-gallery__wrapper,
+.mnb-product-gallery-right .flex-viewport {
+    width: 100% !important;
+    max-height: var(--mnb-gallery-height) !important;
+    overflow: hidden !important;
+    border-radius: 4px;
+    display: block !important;
+    background: transparent;
+}
+
+/* ── Individual slide / image container ── */
+.mnb-product-gallery-right .woocommerce-product-gallery__image {
+    width: 100% !important;
+    display: block !important;
+    overflow: hidden;
+}
+
+/* ── The image itself ── */
+.mnb-product-gallery-right .woocommerce-product-gallery__image img {
+    display: block !important;
+    width: 100% !important;
+    height: var(--mnb-gallery-height) !important;
+    max-height: var(--mnb-gallery-height) !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform-origin: center center;
+    transition: transform 0.35s ease;
+    will-change: transform;
+    cursor: zoom-in;
+}
+
+/* ── Hover zoom — scale the img, let it overflow its clipped parent ── */
+.mnb-product-gallery-right .woocommerce-product-gallery__image:hover {
+    overflow: visible !important;
+    position: relative;
+    z-index: 20;
+}
+.mnb-product-gallery-right .woocommerce-product-gallery__image:hover img {
+    transform: scale(var(--mnb-gallery-zoom));
+}
+
+/* ── Remove WC magnifier — hover zoom replaces it ── */
+.mnb-product-gallery-right .woocommerce-product-gallery__trigger {
+    display: none !important;
+}
+
+/* ── Left column: canvas only, no padding waste ───────────── */
+.mnb-preview-col {
+    width: 100%;
+}
+
+.mnb-preview-col .mnb-canvas-wrap {
+    margin: 0;
+}
+
+/* ── Right column: tighter gallery → variations → fields ─── */
+.elementor-widget-woocommerce-product-add-to-cart.mnb-variations-only {
+    margin-bottom: 8px;
+}
+
+.elementor-widget-mnb_engraving_fields {
+    margin-top: 8px;
+}
+
+/* ── Hide monument type indicator (determined by category) ── */
+.mnb-type-badge,
+.mnb-type-badge-wrap {
+    display: none !important;
+}
+
+/* ── Left col sticky: canvas preview sticks at top ───────── */
+.mnb-canvas-only-wrap,
+.mnb-preview-col {
+    position: sticky;
+    top: 30px;
+    overflow: visible;
+}
+
+.admin-bar .mnb-canvas-only-wrap,
+.admin-bar .mnb-preview-col {
+    top: 62px;
+}
+
+@media (max-width: 767px) {
+    .mnb-canvas-only-wrap,
+    .mnb-preview-col {
+        position: relative;
+        top: auto;
+    }
+}
+
+/* ── Hide express payment buttons on ALL single product pages ─
+   These are not appropriate for custom engraved monuments      */
+.single-product .wc-ppec-cart-buttons-wrap,
+.single-product #woo_pp_ec_button_product,
+.single-product .ppcpcc-container,
+.single-product .woopay-express-button-wrapper,
+.single-product .wc-block-components-express-payment,
+.single-product #wc-stripe-payment-request-wrapper,
+.single-product [id*="payment-request"],
+.single-product [class*="ppcp-button"],
+.single-product [class*="woopay"],
+.single-product [class*="gpay"],
+.single-product [class*="apple-pay"],
+.single-product [class*="venmo"],
+.single-product .klarna-payments-osm,
+.single-product .affirm-as-low-as,
+.single-product #afterpay-placement,
+.single-product .payment-method-badge {
+    display: none !important;
+}
+
+/* ── Hide Monument Type toggle (type determined by product/category) ── */
+.mnb-monument-type-row,
+.mnb-type-toggle-wrap,
+[class*="mnb-type-toggle"],
+.mnb-config-panel .mnb-step-body:has(.mnb-type-btn) {
+    display: none !important;
+}
+
+/* ── Variations: only show inside our mnb-variations-only widget ──
+   Hide the default WC variations table that appears outside our widgets. */
+.woocommerce div.product form.cart .variations {
+    display: none !important;
+}
+
+/* Show variations inside our dedicated variation widget */
+.mnb-variations-only .variations,
+.mnb-variations-only form.cart .variations {
+    display: table !important;
+    width: 100%;
+}
+
+/* PayPal "Starting at" / pay later messages are intentionally visible */
+
+/* ── Product gallery thumbnails — smaller size ────────────── */
+.mnb-product-gallery-right .flex-control-thumbs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-top: 8px !important;
+}
+
+.mnb-product-gallery-right .flex-control-thumbs li {
+    width: 72px !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.mnb-product-gallery-right .flex-control-thumbs li img {
+    width: 72px !important;
+    height: 72px !important;
+    object-fit: cover !important;
+    border-radius: 3px !important;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+.mnb-product-gallery-right .flex-control-thumbs li img:hover,
+.mnb-product-gallery-right .flex-control-thumbs li img.flex-active {
+    opacity: 1;
+}
